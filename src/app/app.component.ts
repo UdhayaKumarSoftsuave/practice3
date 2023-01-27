@@ -9,7 +9,7 @@ export class AppComponent {
   evenNumber : number[] = [];
   oddNumber : number[] = [];
 
-  emittedValue(value : any){
+  emittedValue(value : number){
     if (value %2 == 0) {
       this.evenNumber.push(value);
     } else {
