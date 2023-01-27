@@ -1,1 +1,14 @@
-<p>game-contorl works!</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <button class="btn btn-primary" (click) = "onStart()">Start</button>
+            <button class="btn btn-primary" (click) = "onEnd()">End</button>
+        </div>
+    </div>
+    <div class="row" *ngFor = "let s of counts">
+        <app-odd *ngIf = 's % 2 == 0 ? true : false'  [value] = 's'></app-odd>
+        <app-even *ngIf = 's % 2 != 0 ? true : false' [value] = 's'></app-even>
+    </div>
+</div>
+
