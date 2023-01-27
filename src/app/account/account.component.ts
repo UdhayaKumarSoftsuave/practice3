@@ -19,6 +19,7 @@ export class AccountComponent {
 
   onClick(values : string , indexs : number){
     this.services.changesStatus(values ,indexs );
+    this.services.emitted.emit(values);
   }
 
 }

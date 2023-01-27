@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable , EventEmitter } from "@angular/core";
 import { account } from "./app.component";
 import { Loggingservices } from "./app.services";
 
@@ -11,7 +11,7 @@ export class AccountService {
         {name : 'haii' , status :'InActive'}
       ];
 
-      
+      emitted  = new EventEmitter<String>();
       AddAccount(acc : account){
         this.accounts.push(acc);
         this.logging.onstatusChange(acc.status);

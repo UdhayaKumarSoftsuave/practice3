@@ -11,7 +11,11 @@ import { Loggingservices } from '../app.services';
 })
 export class NewAccountComponent {
 
-  constructor(private logging : Loggingservices , private accountService : AccountService){}
+  constructor(private logging : Loggingservices , private accountService : AccountService){
+    this.accountService.emitted.subscribe((status : string ) => {
+      alert("new Status : " + status) ;
+    })
+  }
 
   onClick(names : any , stauss: any ){
     this.accountService.AddAccount({name : names.value , status :stauss.value});
