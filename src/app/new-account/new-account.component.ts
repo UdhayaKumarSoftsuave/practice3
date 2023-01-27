@@ -1,4 +1,5 @@
 import { Component , EventEmitter ,Output } from '@angular/core';
+import { AccountService } from '../app.account.service';
 import { account } from '../app.component';
 import { Loggingservices } from '../app.services';
 
@@ -6,17 +7,14 @@ import { Loggingservices } from '../app.services';
   selector: 'app-new-account',
   templateUrl: './new-account.component.html',
   styleUrls: ['./new-account.component.css'],
-  providers : [Loggingservices]
+  // providers : [Loggingservices]
 })
 export class NewAccountComponent {
 
-  constructor(private logging : Loggingservices){}
-
-  @Output() account  = new EventEmitter<account>() ;
+  constructor(private logging : Loggingservices , private accountService : AccountService){}
 
   onClick(names : any , stauss: any ){
-    this.account.emit({name : names.value , status  : stauss.value});
-    this.logging.onstatusChange(stauss.value);
+    this.accountService.AddAccount({name : names.value , status :stauss.value});
   }
 
 }
