@@ -1,1 +1,9 @@
-<app-game-contorl></app-game-contorl>
+<div class="container">
+  <div class="row">
+    <app-game-contorl (emitValue) = "emittedValue($event)"></app-game-contorl>
+  </div>
+  <div class="row">
+      <app-odd *ngFor = "let even of evenNumber" [value] = 'even'></app-odd>
+      <app-even *ngFor = "let odd of oddNumber" [value] = 'odd'></app-even>
+  </div>
+</div>

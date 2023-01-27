@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'practice3';
+  evenNumber : number[] = [];
+  oddNumber : number[] = [];
+
+  emittedValue(value : any){
+    if (value %2 == 0) {
+      this.evenNumber.push(value);
+    } else {
+      this.oddNumber.push(value);
+    }
+  }
 }

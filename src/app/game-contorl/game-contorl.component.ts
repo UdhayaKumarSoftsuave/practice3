@@ -1,4 +1,5 @@
-import { Component, EventEmitter } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-game-contorl',
@@ -9,13 +10,13 @@ export class GameContorlComponent {
 
   refer : any ;
   count : number = 0;
-  counts : number[] = [];
+  @Output('emitValue') emit = new EventEmitter<number>();
 
   onStart(){
     this.refer = setInterval(() => {
       this.count = this.count + 1;
-      this.counts.push(this.count);
-      console.log(this.counts);
+      this.emit.emit(this.count);
+      console.log(this.count);
       
     }, 1000);
   }
