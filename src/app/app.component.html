@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <app-new-account></app-new-account>
+      <app-new-account (account) = "onAddAccount($event)"></app-new-account>
     </div>   
   </div>
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-account></app-account>
+      <app-account *ngFor = "let acc of accounts;let i = index"
+       [account] = "acc" [index] = i
+       (emited) = "emittedValue($event , i)"> </app-account>
     </div>
   </div>
 

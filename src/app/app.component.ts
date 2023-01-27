@@ -6,5 +6,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'practice3';
+
+  accounts : account[] = [
+    {name : 'hello' , status :'Active'},
+    {name : 'haii' , status :'InActive'}
+  ];
+
+  onAddAccount(acc : account){
+    this.accounts.push(acc);
+  }
+
+  emittedValue(value : string , index : number){
+    this.accounts[index].status = value;
+  }
+}
+export interface account {
+  name : string,
+  status : string
 }
