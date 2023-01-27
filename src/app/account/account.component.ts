@@ -1,12 +1,15 @@
 import { Component , Input , EventEmitter , Output} from '@angular/core';
 import { account } from '../app.component';
+import { Loggingservices } from '../app.services';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
-  styleUrls: ['./account.component.css']
+  styleUrls: ['./account.component.css'],
+  providers : [Loggingservices]
 })
 export class AccountComponent {
+  constructor(private logging : Loggingservices){}
 
   @Input() account !: account ;
   @Input() index !: number;
@@ -16,7 +19,7 @@ export class AccountComponent {
 
   onClick(values : string , indexs : number){
     this.emited.emit(values);
-    console.log('A server status changed, new status: ' + values);
+    this.logging.onstatusChange(values);
   }
 
 }
